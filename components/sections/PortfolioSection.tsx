@@ -65,7 +65,10 @@ export default function PortfolioSection() {
     const dragEndX = info.point.x
     const dragDistance = dragEndX - dragStartX
 
-    if (Math.abs(dragDistance) > 100) {
+    // 드래그 감도 조정 (모바일에서는 더 작은 거리로도 카드가 넘어가도록)
+    const threshold = window.innerWidth < 768 ? 50 : 100
+    
+    if (Math.abs(dragDistance) > threshold) {
       if (dragDistance > 0) {
         prevCard()
       } else {
@@ -131,14 +134,19 @@ export default function PortfolioSection() {
                   animate={cardPosition}
                   drag="x"
                   dragConstraints={{ left: 0, right: 0 }}
-                  dragElastic={0.2}
+                  dragElastic={0.1}
+                  dragTransition={{ 
+                    bounceStiffness: 300,
+                    bounceDamping: 20
+                  }}
                   onDragStart={handleDragStart}
                   onDragEnd={handleDragEnd}
                   transition={{
                     type: "spring",
-                    stiffness: 400,
-                    damping: 35,
-                    duration: 0.5
+                    stiffness: 300,
+                    damping: 30,
+                    mass: 0.8,
+                    velocity: 0.2
                   }}
                   style={{
                     transformStyle: "preserve-3d",
@@ -182,21 +190,6 @@ export default function PortfolioSection() {
                         </div>
                       )}
 
-                      {/* 선택된 카드 표시 및 확대 힌트 */}
-                      {isSelected && (
-                        <motion.div
-                          className="absolute bottom-3 left-3"
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          transition={{ delay: 0.3 }}
-                        >
-                          <div className="bg-primary text-black text-xs font-bold px-2 py-1 rounded-full flex items-center">
-                            <MaterialIcon name="zoom_in" size="sm" className="mr-1" />
-                            클릭하여 확대
-                          </div>
-                        </motion.div>
-                      )}
-                      
                       <Image
                         src={item.image || "/images/pf-1.webp"}
                         alt={item.title}

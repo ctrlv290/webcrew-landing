@@ -208,15 +208,15 @@ const PricingCalculatorSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="bg-white rounded-lg shadow-2xl border border-gray-300 relative max-w-md mx-auto h-[600px] flex flex-col">
+            <div className="bg-white rounded-lg shadow-2xl border border-gray-300 relative max-w-md mx-auto h-[600px] flex flex-col overflow-hidden">
               {/* 영수증 상단 톱니 효과 */}
               <div className="w-full h-6 bg-gray-100 relative flex-shrink-0">
-                <div className="absolute top-3 left-0 w-full h-0 flex justify-center">
+                <div className="absolute top-2 left-0 w-full h-0 flex justify-center">
                   <div className="flex space-x-3">
                     {Array.from({ length: 15 }).map((_, i) => (
                       <div 
                         key={i} 
-                        className="w-2 h-2 bg-white rounded-full border border-gray-300"
+                        className="w-1.5 h-1.5 bg-white rounded-full border border-gray-300"
                       />
                     ))}
                   </div>
@@ -309,12 +309,12 @@ const PricingCalculatorSection = () => {
 
               {/* 영수증 하단 톱니 효과 */}
               <div className="w-full h-6 bg-gray-100 relative flex-shrink-0">
-                <div className="absolute top-3 left-0 w-full h-0 flex justify-center">
+                <div className="absolute top-2 left-0 w-full h-0 flex justify-center">
                   <div className="flex space-x-3">
                     {Array.from({ length: 15 }).map((_, i) => (
                       <div 
                         key={i} 
-                        className="w-2 h-2 bg-white rounded-full border border-gray-300"
+                        className="w-1.5 h-1.5 bg-white rounded-full border border-gray-300"
                       />
                     ))}
                   </div>
