@@ -8,15 +8,15 @@ import { whyUsFeatures } from "@/lib/data/content"
 
 export default function WhyUsSection() {
   return (
-    <SectionContainer backgroundColor="#F9FAFB" className="min-h-screen">
+    <SectionContainer backgroundColor="#F9FAFB" isFullScreen={false}>
       <motion.h2
-        className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12"
+        className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16 leading-relaxed md:leading-relaxed"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        왜 <span className="text-primary">WebCrew</span>를 선택해야 할까요?
+        왜 <span className="text-primary">WebCrew</span> 를 선택해야 할까요?
       </motion.h2>
 
       <motion.div
@@ -87,10 +87,12 @@ export default function WhyUsSection() {
               <span className="text-white font-medium text-sm">우리의 차이점</span>
             </div>
 
-            <h3 className="text-3xl md:text-4xl font-bold mb-4">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4 leading-relaxed md:leading-relaxed">
               <span className="text-white">WebCrew는</span>{" "}
-              <span className="bg-emerald-400 text-black px-3 py-1 rounded-xl">자체 인력으로만</span>{" "}
-              <span className="text-white">개발합니다</span>
+              <span className="md:inline block my-2 md:my-0">
+                <span className="bg-emerald-400 text-black px-3 py-1 rounded-xl">자체 인력으로만</span>{" "}
+                <span className="text-white mt-2 md:mt-0 block md:inline">개발합니다</span>
+              </span>
             </h3>
 
             <p className="text-white/90 text-lg leading-relaxed mb-6 max-w-3xl">

@@ -17,12 +17,13 @@ const PricingCalculatorSection = () => {
             <br /><span className="text-primary">AI로 계산</span>해보세요
           </>
         }
-        subtitle="일반 개발 방식과 AI 힘을 개발 방식의 비용을 비교하여 얼마나 절감할 수 있는지 확인해보세요"
+        subtitle="일반 개발 방식과 AI 개발 방식의 비용을 비교하여 얼마나 절감할 수 있는지 확인해보세요"
+        className="mb-16"
       />
 
       <div className="max-w-6xl mx-auto">
         <motion.div
-          className="grid lg:grid-cols-[2fr_auto_2fr] gap-8 items-center"
+          className="grid lg:grid-cols-[2fr_auto_2fr] gap-8 items-center overflow-x-hidden lg:overflow-x-visible"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -149,6 +150,9 @@ const PricingCalculatorSection = () => {
           >
             <motion.div
               className="bg-primary rounded-full p-4 shadow-lg w-16 h-16 flex items-center justify-center relative"
+              style={{
+                boxShadow: "rgba(246, 170, 32, 0.38) 0px 9.59114px 14.3867px -2.86371px, rgba(246, 170, 32, 0.282) 0px 3.86371px 5.86371px -1.93186px"
+              }}
               animate={{ 
                 boxShadow: [
                   "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
@@ -175,8 +179,23 @@ const PricingCalculatorSection = () => {
                 }}
               />
               
-              <div className="relative z-10">
-                <MaterialIcon name="arrow_forward" size="xl" className="text-black" />
+              <div className="relative z-10 flex items-center justify-center w-full h-full">
+                {/* 데스크톱 화살표 */}
+                <div className="hidden md:flex items-center justify-center w-full">
+                  <MaterialIcon 
+                    name="arrow_forward" 
+                    size="xl" 
+                    className="text-black" 
+                  />
+                </div>
+                {/* 모바일 화살표 */}
+                <div className="flex md:hidden items-center justify-center w-full">
+                  <MaterialIcon 
+                    name="arrow_downward" 
+                    size="xl" 
+                    className="text-black" 
+                  />
+                </div>
               </div>
             </motion.div>
           </motion.div>
@@ -189,7 +208,7 @@ const PricingCalculatorSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="bg-white rounded-lg shadow-2xl border border-gray-300 relative max-w-md mx-auto h-[600px] flex flex-col overflow-hidden">
+            <div className="bg-white rounded-lg shadow-2xl border border-gray-300 relative max-w-md mx-auto h-[600px] flex flex-col">
               {/* 영수증 상단 톱니 효과 */}
               <div className="w-full h-6 bg-gray-100 relative flex-shrink-0">
                 <div className="absolute top-3 left-0 w-full h-0 flex justify-center">

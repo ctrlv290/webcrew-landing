@@ -60,19 +60,21 @@ const Header = memo(({
           </Link>
         </motion.div>
 
-        <Navigation 
-          items={navigationItems}
-          onItemClick={onScrollToSection}
-        />
+        <div className="flex items-center space-x-4">
+          <Navigation 
+            items={navigationItems}
+            onItemClick={onScrollToSection}
+          />
 
-        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <Button
-            onClick={() => onScrollToSection('contact')}
-            className="bg-primary hover:bg-primary/90 text-black px-6 py-2 rounded-full font-semibold"
-          >
-            지금 상담 신청하기
-          </Button>
-        </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="hidden lg:block">
+            <Button
+              onClick={() => onScrollToSection('contact')}
+              className="bg-primary hover:bg-primary/90 text-black px-6 py-2 rounded-full font-semibold"
+            >
+              지금 상담 신청하기
+            </Button>
+          </motion.div>
+        </div>
       </div>
     </motion.header>
   )

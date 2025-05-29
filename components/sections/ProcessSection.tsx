@@ -125,7 +125,7 @@ export default function ProcessSection({
             지금 바로 상담을 시작해보세요
           </h3>
           <p className="text-xl text-gray-600 mb-4 max-w-3xl mx-auto">
-            웨이팅 리스트에 등록하시면 출시 소식을 가장 먼저 알려드립니다
+            내부 개발팀의 철저한 품질 관리와 고객과의 신뢰를 최우선 합니다.
           </p>
         </motion.div>
 

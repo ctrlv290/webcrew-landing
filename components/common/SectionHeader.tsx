@@ -15,7 +15,7 @@ interface SectionHeaderProps {
 export default function SectionHeader({ badge, title, subtitle, className = "" }: SectionHeaderProps) {
   return (
     <motion.div
-      className={`text-center mb-12 ${className}`}
+      className={`text-center mb-16 ${className}`}
       variants={animations.sectionTitle}
       initial="initial"
       whileInView="animate"
@@ -34,11 +34,11 @@ export default function SectionHeader({ badge, title, subtitle, className = "" }
         </motion.div>
       )}
       
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 leading-relaxed md:leading-relaxed">
         {title}
       </h2>
       
-      <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+      <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
         {subtitle}
       </p>
     </motion.div>

@@ -18,7 +18,7 @@ export default function UseCasesSection() {
           </>
         }
         subtitle="업종과 규모에 상관없이 누구나 쉽게 원하는 웹사이트를 만들 수 있습니다"
-        className="mb-10"
+        className="mb-16"
       />
 
       <motion.div

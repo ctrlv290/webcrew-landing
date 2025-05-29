@@ -42,20 +42,20 @@ export default function HeroSection({ onScrollToSection }: HeroSectionProps) {
         style={{ y, opacity }}
       >
         <motion.h1
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight md:leading-normal lg:leading-relaxed"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           비전문가도 이해할 수 있는
-          <br />웹 제작,{" "}
+          <br />웹 제작{" "}
           <motion.span
             className="text-primary"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            WebCrew
+            WebCrew{" "}
           </motion.span>
           가 함께합니다.
         </motion.h1>
@@ -81,7 +81,7 @@ export default function HeroSection({ onScrollToSection }: HeroSectionProps) {
             size="lg"
             className="bg-primary hover:bg-primary/90 text-black px-8 py-4 rounded-full text-lg shadow-lg font-semibold pulse-button"
           >
-            맞춤 견적 요청하기
+            무료 상담 요청하기
             <motion.div
               className="ml-2 flex items-center"
               animate={{ x: [0, 5, 0] }}
