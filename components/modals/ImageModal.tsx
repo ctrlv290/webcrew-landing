@@ -112,18 +112,6 @@ export default function ImageModal({
                 </motion.div>
               )}
             </div>
-
-            {/* 확대/축소 힌트 */}
-            <motion.div
-              className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 text-gray-700 text-xs px-3 py-2 rounded-full backdrop-blur-sm"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.4 }}
-            >
-              <div className="flex items-center space-x-2">
-                <span>ESC로 닫기</span>
-              </div>
-            </motion.div>
           </motion.div>
         </motion.div>
       )}

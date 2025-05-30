@@ -39,7 +39,11 @@ export default function HeroSection({ onScrollToSection }: HeroSectionProps) {
 
       <motion.div
         className="container mx-auto text-center max-w-5xl relative z-10"
-        style={{ y, opacity }}
+        style={{
+          y,
+          opacity,
+          willChange: 'transform, opacity'
+        }}
       >
         <motion.h1
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight md:leading-normal lg:leading-relaxed"

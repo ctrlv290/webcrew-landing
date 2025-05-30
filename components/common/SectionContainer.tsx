@@ -4,6 +4,7 @@ interface SectionContainerProps {
   className?: string
   children: React.ReactNode
   isFullScreen?: boolean
+  disableHorizontalPadding?: boolean
 }
 
 export default function SectionContainer({ 
@@ -11,7 +12,8 @@ export default function SectionContainer({
   backgroundColor = '#FFFFFF', 
   className = "",
   children,
-  isFullScreen = false
+  isFullScreen = false,
+  disableHorizontalPadding = false
 }: SectionContainerProps) {
   return (
     <section 
@@ -19,7 +21,7 @@ export default function SectionContainer({
       className={`${isFullScreen ? 'h-screen min-h-screen' : 'min-h-fit py-16 md:py-20'} flex items-center ${className}`} 
       style={{ backgroundColor }}
     >
-      <div className="section-container">
+      <div className={`section-container ${disableHorizontalPadding ? '!px-0' : ''}`}>
         {children}
       </div>
     </section>

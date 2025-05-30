@@ -89,23 +89,24 @@ export default function PortfolioSection() {
   }, [])
 
   // 카드 위치 계산 함수
-  const calculateCardPosition = (stackPosition: number, isSelected: boolean, isVisible: boolean): CardPosition => {
+  const calculateCardPosition = (stackPosition: number, isSelected: boolean, isVisible: boolean): CardPosition & { display: string } => {
     const absPosition = Math.abs(stackPosition)
     const scale = isSelected ? CARD_SCALE.SELECTED : Math.max(CARD_SCALE.MIN, 1 - absPosition * CARD_SCALE.SCALE_FACTOR)
     
     return {
       scale,
-      z: isSelected ? 100 : 50 - absPosition,
+      z: isVisible ? (isSelected ? 100 : 50 - absPosition) : 0,
       rotateY: isSelected ? 0 : stackPosition * 2,
       rotateX: isSelected ? 0 : absPosition * 0.5,
       x: isSelected ? 0 : stackPosition * (window.innerWidth < 768 ? CARD_SPACING.MOBILE : CARD_SPACING.DESKTOP),
       y: isSelected ? 0 : absPosition * 25,
-      opacity: isVisible ? (isSelected ? 1 : 0.6 - absPosition * 0.15) : 0
+      opacity: isVisible ? (isSelected ? 1 : 0.6 - absPosition * 0.15) : 0,
+      display: isVisible ? 'block' : 'none'
     }
   }
 
   return (
-    <SectionContainer id="portfolio" backgroundColor="#FFFFFF">
+    <SectionContainer id="portfolio" backgroundColor="#FFFFFF" disableHorizontalPadding={true}>
       <SectionHeader
         title={
           <>
@@ -117,7 +118,7 @@ export default function PortfolioSection() {
       />
 
       {/* 카드 스택 컨테이너 */}
-      <div className="relative w-full overflow-x-hidden">
+      <div className="relative w-full overflow-x-hidden md:overflow-x-visible">
         <div className="relative max-w-6xl mx-auto h-[700px] md:h-[700px] flex items-center justify-center">
           <div className="relative w-[85%] md:w-full max-w-4xl h-[500px] mx-auto md:mx-0">
             {portfolioItems.map((item, index) => {
@@ -151,10 +152,13 @@ export default function PortfolioSection() {
                   style={{
                     transformStyle: "preserve-3d",
                     perspective: "1000px",
-                    zIndex: cardPosition.z
+                    zIndex: cardPosition.z,
+                    willChange: 'transform, opacity',
+                    backfaceVisibility: 'hidden',
+                    display: cardPosition.display
                   }}
                   onClick={() => !isDragging && handleCardClick(index)}
-                  whileHover={{
+                  whileHover={isDragging ? undefined : {
                     scale: isSelected ? 1.02 : cardPosition.scale + 0.02,
                     y: isSelected ? -8 : cardPosition.y - 12,
                     transition: { duration: 0.2 }
@@ -195,7 +199,7 @@ export default function PortfolioSection() {
                         alt={item.title}
                         width={500}
                         height={300}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover pointer-events-none"
                         onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
                           e.currentTarget.src = "/images/pf-1.webp"
                         }}
@@ -260,11 +264,12 @@ export default function PortfolioSection() {
 
       {/* 안내 텍스트 */}
       <motion.div
-        className="text-center mt-12 text-gray-500 text-sm"
+        className="text-center mt-0 text-gray-500 text-sm"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
       >
+        카드를 드래그하여 다양한 프로젝트를 확인해보세요.<br/>
         선택된 카드를 클릭하면 이미지를 확대해서 볼 수 있습니다
       </motion.div>
 

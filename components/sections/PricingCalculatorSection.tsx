@@ -31,11 +31,11 @@ const PricingCalculatorSection = () => {
         >
           {/* 왼쪽: 프로세스 단계 - 계산기 디자인 */}
           <motion.div
-            className="bg-white rounded-3xl p-8 shadow-2xl border-4 border-gray-300 max-w-xl mx-auto"
+            className="bg-white rounded-3xl p-8 sm:shadow-2xl border-4 border-gray-300 max-w-sm sm:max-w-xl mx-auto"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <motion.div
               className="space-y-4"
@@ -208,7 +208,7 @@ const PricingCalculatorSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="bg-white rounded-lg shadow-2xl border border-gray-300 relative max-w-md mx-auto h-[600px] flex flex-col overflow-hidden">
+            <div className="bg-white rounded-lg sm:shadow-2xl border border-gray-300 relative max-w-xs sm:max-w-md mx-auto h-auto sm:h-[600px] flex flex-col overflow-hidden">
               {/* 영수증 상단 톱니 효과 */}
               <div className="w-full h-6 bg-gray-100 relative flex-shrink-0">
                 <div className="absolute top-2 left-0 w-full h-0 flex justify-center">
